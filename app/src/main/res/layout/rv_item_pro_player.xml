@@ -16,8 +16,8 @@
 
 		<de.hdodenhof.circleimageview.CircleImageView
 			android:id="@+id/imgViewProPlayer"
-			android:layout_width="150dp"
-			android:layout_height="194dp"
+			android:layout_width="110dp"
+			android:layout_height="150dp"
 			android:layout_gravity="center"
 			android:contentDescription="@string/imagem_avatar"
 			android:scaleType="centerCrop"
@@ -27,7 +27,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
-			android:padding="16dp">
+			android:padding="5dp">
 
 			<TextView
 				android:id="@+id/txtViewNameProPlayer"
@@ -42,7 +42,7 @@
 				android:id="@+id/txtViewPersonNameProPlayer"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="8dp"
+				android:layout_marginTop="4dp"
 				android:textAppearance="?attr/textAppearanceBody2"
 				android:textColor="?android:attr/textColorSecondary"
 				tools:text="@tools:sample/last_names" />
@@ -51,7 +51,7 @@
 				android:id="@+id/txtViewTeamNameProPlayer"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="16dp"
+				android:layout_marginTop="4dp"
 				android:textAppearance="?attr/textAppearanceBody2"
 				android:textColor="?android:attr/textColorSecondary"
 				tools:text="@tools:sample/lorem[20]" />
@@ -62,7 +62,7 @@
 		<LinearLayout
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_margin="8dp"
+			android:layout_margin="4dp"
 			android:orientation="horizontal">
 
 			<com.google.android.material.button.MaterialButton
