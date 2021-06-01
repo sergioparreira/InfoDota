@@ -4,8 +4,12 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.AutoTransition
+import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
 import com.example.dotainfo.R
 import com.example.dotainfo.model.ProPlayer
@@ -40,12 +44,24 @@ class AdapterProPlayers(val listaProPlayers: List<ProPlayer>) :
                 txtViewNameProPlayer.text = "Name: ${mProPlayer.name.toString()}"
                 txtViewPersonNameProPlayer.text = mProPlayer.personaname.toString()
                 txtViewTeamNameProPlayer.text = mProPlayer.team_name.toString()
-                buttonVerMais.setOnClickListener {
-                    val action = ProPlayersFragmentDirections.actionNavProPlayersToDetalheProPlayersFragment()
-                    findNavController().navigate(action)
-                }
+	            showButton.setOnClickListener {
+		            showOrRide(card, textViewToExpandle, View.VISIBLE)
+
+	            }
+	            hideButton.setOnClickListener {
+		            showOrRide(card, textViewToExpandle, View.GONE)
+
+	            }
             }
         }
+
+	    fun showOrRide(cardView: CardView, textView: TextView, visibilidade : Int){
+		    TransitionManager.beginDelayedTransition(cardView, AutoTransition())
+		    textView.visibility = visibilidade
+
+	    }
+
+
     }
 
 }

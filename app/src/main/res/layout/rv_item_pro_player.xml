@@ -1,69 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<com.google.android.material.card.MaterialCardView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/card"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="8dp"
+	android:elevation="4dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<de.hdodenhof.circleimageview.CircleImageView
+			android:id="@+id/imgViewProPlayer"
+			android:layout_width="150dp"
+			android:layout_height="194dp"
+			android:layout_gravity="center"
+			android:contentDescription="@string/imagem_avatar"
+			android:scaleType="centerCrop"
+			tools:src="@tools:sample/avatars" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="16dp">
+
+			<TextView
+				android:id="@+id/txtViewNameProPlayer"
+				android:layout_width="wrap_content"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:textAppearance="?attr/textAppearanceHeadline6"
+				tools:text="@tools:sample/first_names" />
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+			<TextView
+				android:id="@+id/txtViewPersonNameProPlayer"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:textAppearance="?attr/textAppearanceBody2"
+				android:textColor="?android:attr/textColorSecondary"
+				tools:text="@tools:sample/last_names" />
 
-        <ImageView
-            android:id="@+id/imgViewProPlayer"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/dota2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+			<TextView
+				android:id="@+id/txtViewTeamNameProPlayer"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:textAppearance="?attr/textAppearanceBody2"
+				android:textColor="?android:attr/textColorSecondary"
+				tools:text="@tools:sample/lorem[20]" />
 
-        <TextView
-            android:id="@+id/txtViewNameProPlayer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Nome:"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgViewProPlayer" />
-
-        <TextView
-            android:id="@+id/txtViewPersonNameProPlayer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="PersonName:"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtViewNameProPlayer" />
-
-        <TextView
-            android:id="@+id/txtViewTeamNameProPlayer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="TeamName:"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtViewPersonNameProPlayer" />
-
-        <Button
-            android:id="@+id/buttonVerMais"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="VER MAIS"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtViewTeamNameProPlayer" />
+		</LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="8dp"
+			android:orientation="horizontal">
 
-</androidx.cardview.widget.CardView>
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/hideButton"
+				style="?attr/borderlessButtonStyle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="8dp"
+				android:text="@string/hide" />
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/showButton"
+				style="?attr/borderWidth"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:backgroundTint="@color/purple_500"
+				android:text="@string/show"
+				android:textColor="@color/white" />
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/textViewToExpandle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:visibility="gone"
+			android:text="TESTETSTETETTET TET T ET ETETETETTE TE TE TETE T ET ET ET E TE TE TE T ET EG FD GFDG FDG DFG "
+			/>
+
+	</LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
