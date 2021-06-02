@@ -11,21 +11,20 @@ import com.example.dotainfo.adapters.AdapterViewPager
 import com.example.dotainfo.customui.FragmentHero
 import com.example.dotainfo.enums.HeroesEnum
 import com.example.dotainfo.ui.HeroesFragment
-import com.example.dotainfo.ui.proPlayers.ProPlayersFragment
-import kotlinx.android.synthetic.main.fragment_slideshow.*
+import kotlinx.android.synthetic.main.fragment_heroes.*
 
-class SlideshowFragment : Fragment() {
+class HeroesFragment : Fragment() {
 
-    private lateinit var slideshowViewModel: SlideshowViewModel
+    private lateinit var heroesViewModel: HeroesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_slideshow, container, false)
+        heroesViewModel =
+            ViewModelProvider(this).get(HeroesViewModel::class.java)
+        return inflater.inflate(R.layout.fragment_heroes, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
