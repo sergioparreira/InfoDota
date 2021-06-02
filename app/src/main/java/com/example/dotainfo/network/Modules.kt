@@ -2,16 +2,15 @@ package com.example.dotainfo.network
 
 import androidx.room.Room
 import com.example.dotainfo.database.OpenDataBase
-import com.example.dotainfo.interfaces.ISincronizacao
 import com.example.dotainfo.repository.DotaRepository
 import com.example.dotainfo.repository.DotaRepositoryImpl
 import com.example.dotainfo.service.DotaApi
-import com.example.dotainfo.ui.HeroesViewModel
+import com.example.dotainfo.ui.HeroesAttryViewModel
 import com.example.dotainfo.ui.ViewModelSplashScreen
+import com.example.dotainfo.ui.heroes.HeroesViewModel
 import com.example.dotainfo.ui.proPlayers.ProPlayersViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.dsl.viewModel
-import org.koin.dsl.bind
 import org.koin.dsl.module
 
 val apiModules = module {
@@ -27,6 +26,7 @@ val apiModules = module {
 val viewModelModules = module {
     viewModel { ProPlayersViewModel() }
     viewModel { ViewModelSplashScreen() }
+    viewModel { HeroesAttryViewModel() }
     viewModel { HeroesViewModel() }
 }
 

@@ -5,6 +5,8 @@ import com.example.dotainfo.enums.HeroesEnum
 import com.example.dotainfo.model.Heroes
 import com.example.dotainfo.model.ProPlayer
 import com.example.dotainfo.service.DotaApi
+import java.util.*
+import kotlin.collections.ArrayList
 
 interface DotaRepository {
 
@@ -39,7 +41,10 @@ class DotaRepositoryImpl(private val mDotaApi: DotaApi, private val mDotaBd : Op
     }
 
     override suspend fun getHeroesBdAttry(enumHeroes: String): List<Heroes> {
-        return mDotaBd.Heroes().getHeroesAttry(enumHeroes)
+        return when (enumHeroes) {
+            HeroesEnum.ALL.name.toLowerCase(Locale.getDefault()) -> mDotaBd.Heroes().getHeroes()
+            else ->  mDotaBd.Heroes().getHeroesAttry(enumHeroes)
+        }
 
     }
 

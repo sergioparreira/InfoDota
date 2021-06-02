@@ -10,7 +10,7 @@ import com.example.dotainfo.R
 import com.example.dotainfo.adapters.AdapterViewPager
 import com.example.dotainfo.customui.FragmentHero
 import com.example.dotainfo.enums.HeroesEnum
-import com.example.dotainfo.ui.HeroesFragment
+import com.example.dotainfo.ui.HeroesFragmentAttry
 import kotlinx.android.synthetic.main.fragment_heroes.*
 
 class HeroesFragment : Fragment() {
@@ -35,9 +35,9 @@ class HeroesFragment : Fragment() {
 
         tabletLayout.setupWithViewPager(viewPager)
 
-        val fragment1 = HeroesFragment(HeroesEnum.STR, "Strength")
-        val fragment2 = HeroesFragment(HeroesEnum.AGI,"Agility")
-        val fragment3 = HeroesFragment(HeroesEnum.INT,"Inteligency")
+        val fragment1 = HeroesFragmentAttry(HeroesEnum.STR, "Strength")
+        val fragment2 = HeroesFragmentAttry(HeroesEnum.AGI,"Agility")
+        val fragment3 = HeroesFragmentAttry(HeroesEnum.INT,"Inteligency")
 
         val listaFragment : ArrayList<FragmentHero> = arrayListOf(fragment1, fragment2, fragment3)
 

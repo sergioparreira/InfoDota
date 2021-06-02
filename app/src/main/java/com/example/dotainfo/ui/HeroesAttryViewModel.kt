@@ -12,7 +12,7 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 import java.util.*
 
-class HeroesViewModel : ViewModel(), KoinComponent {
+class HeroesAttryViewModel : ViewModel(), KoinComponent {
 
     private val mDotaRepository: DotaRepository by inject()
 
