@@ -5,44 +5,59 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.dotainfo.R
-import com.example.dotainfo.adapters.AdapterViewPager
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.RecyclerView
+import com.example.dotainfo.adapters.AdapterHeroes
 import com.example.dotainfo.customui.FragmentHero
+import com.example.dotainfo.databinding.FragmentHeroesAttryBinding
 import com.example.dotainfo.enums.HeroesEnum
-import com.example.dotainfo.ui.HeroesFragmentAttry
-import kotlinx.android.synthetic.main.fragment_heroes.*
+import com.example.dotainfo.interfaces.IFragmentTable
+import org.koin.android.ext.android.inject
 
-class HeroesFragment : Fragment() {
+class HeroesFragment() : Fragment(){
 
-    private lateinit var heroesViewModel: HeroesViewModel
+    private lateinit var recycleView: RecyclerView
+
+    private val heroesFragmentviewModel : HeroesViewModel by inject()
+    private lateinit var heroesFragmentBinding : FragmentHeroesAttryBinding
+
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        heroesViewModel =
-            ViewModelProvider(this).get(HeroesViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_heroes, container, false)
+    ): View {
+        heroesFragmentBinding = FragmentHeroesAttryBinding.inflate(layoutInflater)
+        return heroesFragmentBinding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val viewPager = viewpager
-        val tabletLayout = tablayout
-
-        tabletLayout.setupWithViewPager(viewPager)
-
-        val fragment1 = HeroesFragmentAttry(HeroesEnum.STR, "Strength")
-        val fragment2 = HeroesFragmentAttry(HeroesEnum.AGI,"Agility")
-        val fragment3 = HeroesFragmentAttry(HeroesEnum.INT,"Inteligency")
-
-        val listaFragment : ArrayList<FragmentHero> = arrayListOf(fragment1, fragment2, fragment3)
-
-        val viewPagerAdapter = AdapterViewPager(childFragmentManager, listaFragment)
-
-        viewPager.adapter = viewPagerAdapter
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        configureObserverProPlayer()
+        configuraRecyclerView()
+        carregarHeroes()
     }
+
+    private fun carregarHeroes() {
+       heroesFragmentviewModel.loadHeroes(null)
+    }
+
+    private fun configureObserverProPlayer() {
+        heroesFragmentviewModel._heroes.observe(viewLifecycleOwner, Observer {
+            recycleView.adapter = AdapterHeroes(it)
+        })
+    }
+
+
+    private fun configuraRecyclerView() {
+        with(heroesFragmentBinding){
+            recycleView = heroesRecyclerView
+            val layoutManager = androidx.recyclerview.widget.StaggeredGridLayoutManager(
+                3,
+                androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
+            )
+            recycleView.layoutManager = layoutManager
+        }
+    }
+
+
 }

@@ -7,10 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dotainfo.model.ProPlayer
 import com.example.dotainfo.repository.DotaRepository
-import com.example.dotainfo.repository.DotaRepositoryImpl
 import kotlinx.coroutines.launch
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import java.lang.Exception
 
 class ProPlayersViewModel() : ViewModel(), KoinComponent {

@@ -1,5 +1,6 @@
 package com.example.dotainfo.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -8,17 +9,11 @@ import androidx.lifecycle.Observer
 import com.example.dotainfo.MainActivity
 import com.example.dotainfo.R
 import com.example.dotainfo.interfaces.ISincronizacao
-import com.example.dotainfo.repository.DotaRepository
 import kotlinx.android.synthetic.main.activity_splash_screen.*
-import kotlinx.coroutines.CoroutineScope
-import org.jetbrains.anko.custom.async
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.doAsyncResult
-import org.jetbrains.anko.startActivity
-import org.koin.android.ext.android.inject
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-class SplashScreenActivity : AppCompatActivity(), ISincronizacao {
+class SplashScreenActivity : AppCompatActivity(), ISincronizacao, KoinComponent {
 
     private val mViewModelSplashScreen: ViewModelSplashScreen by inject()
 
@@ -60,7 +55,8 @@ class SplashScreenActivity : AppCompatActivity(), ISincronizacao {
     }
 
     private fun abrirMenuPrincipal() {
-        startActivity<MainActivity>()
+        val intent = Intent(this, MainActivity::class.java)
+        this.startActivity(intent)
         finish()
     }
 

@@ -1,13 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HeroesFragmentAttry">
+    android:orientation="vertical"
+    tools:context=".ui.heroes.HeroesFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="FILTRAR HERÓIS"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:text="ATRIBUTO"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:background="@drawable/ic_menu_gallery"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:background="@drawable/ic_menu_camera"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:background="@drawable/ic_menu_slideshow"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:text="COMPLEXIDADE"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/heroesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-</FrameLayout>
+</LinearLayout>

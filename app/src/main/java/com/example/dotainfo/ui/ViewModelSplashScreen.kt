@@ -6,11 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dotainfo.database.OpenDataBase
-import com.example.dotainfo.interfaces.ISincronizacao
 import com.example.dotainfo.repository.DotaRepository
 import kotlinx.coroutines.launch
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import java.lang.Exception
 
 class ViewModelSplashScreen : ViewModel(), KoinComponent {

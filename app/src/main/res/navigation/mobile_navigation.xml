@@ -25,7 +25,7 @@
         android:id="@+id/nav_heroes"
         android:name="com.example.dotainfo.ui.heroes.HeroesFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_heroes" />
+        tools:layout="@layout/fragment_heroes_attry" />
     <fragment
         android:id="@+id/detalheProPlayersFragment"
         android:name="com.example.dotainfo.ui.proPlayers.DetalheProPlayersFragment"
