@@ -13,7 +13,7 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_pro_players" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_heroes"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
     </group>

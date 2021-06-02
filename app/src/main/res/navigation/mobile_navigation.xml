@@ -15,17 +15,17 @@
         android:id="@+id/nav_pro_players"
         android:name="com.example.dotainfo.ui.proPlayers.ProPlayersFragment"
         android:label="@string/menu_pro_players"
-        tools:layout="@layout/fragment_gallery" >
+        tools:layout="@layout/fragment_pro_players" >
         <action
             android:id="@+id/action_nav_pro_players_to_detalheProPlayersFragment"
             app:destination="@id/detalheProPlayersFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.dotainfo.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_heroes"
+        android:name="com.example.dotainfo.ui.heroes.HeroesFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_heroes" />
     <fragment
         android:id="@+id/detalheProPlayersFragment"
         android:name="com.example.dotainfo.ui.proPlayers.DetalheProPlayersFragment"

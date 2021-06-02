@@ -1,4 +1,4 @@
-package com.example.dotainfo.ui.slideshow
+package com.example.dotainfo.ui.heroes
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

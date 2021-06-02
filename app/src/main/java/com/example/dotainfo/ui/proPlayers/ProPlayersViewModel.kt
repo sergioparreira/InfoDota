@@ -22,7 +22,7 @@ class ProPlayersViewModel() : ViewModel(), KoinComponent {
     fun getProPlayers() {
         try {
             viewModelScope.launch {
-                _proPlayers.value = mDotaRepository.getProPlayersFromBd();
+                _proPlayers.value = mDotaRepository.getProPlayersFromBd()
             }
         } catch (e: Exception) {
             Log.e("erro na requisição", e.message.toString())

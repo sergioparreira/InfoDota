@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dotainfo.database.OpenDataBase
+import com.example.dotainfo.interfaces.ISincronizacao
 import com.example.dotainfo.repository.DotaRepository
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
@@ -20,24 +21,40 @@ class ViewModelSplashScreen : ViewModel(), KoinComponent {
     private val _finalizouCarregamento = MutableLiveData<Boolean>()
     val finalizouCarregamento: LiveData<Boolean> = _finalizouCarregamento
 
-    fun carregarDadosDaApi() {
-
+    fun carregarDadosProPlayers() {
+  //      splashScreenActivity.sendProgressSincMsg("Loading pro players")
         viewModelScope.launch {
             try {
-                if (!jaFoiCarregado()) {
+                if (!playersJaCarregado()) {
                     mDataBase.ProPlayer().insertProPlayers(mDotaRepository.getProPlayers())
-                    _finalizouCarregamento.value = true
                 }
-                _finalizouCarregamento.value = true
             } catch (e: Exception) {
-                _finalizouCarregamento.value = true;
-                Log.e("ERRO", e.message.toString())
+            //    splashScreenActivity.sendProgressSincMsg("An error ocurred while loading pro players")
             }
         }
     }
 
-    suspend fun jaFoiCarregado(): Boolean {
-        return mDataBase.ProPlayer().getProPlayers().size > 0
+    fun carregarDadosHeroes() {
+       // splashScreenActivity.sendProgressSincMsg("Loading Heroes")
+        viewModelScope.launch {
+            try {
+                if (!playersJaCarregado()) {
+                    mDataBase.Heroes().insertHeroes(mDotaRepository.getHeroes())
+                }
+                finalizouCarregamento()
+            } catch (e: Exception) {
+           //     splashScreenActivity.sendProgressSincMsg("An error ocurred while loading heroes")
+                finalizouCarregamento()
+            }
+        }
+    }
+
+    private fun finalizouCarregamento(){
+        _finalizouCarregamento.value = true
+    }
+
+    suspend fun playersJaCarregado(): Boolean {
+        return mDataBase.ProPlayer().getProPlayers().isNotEmpty()
 
     }
 }

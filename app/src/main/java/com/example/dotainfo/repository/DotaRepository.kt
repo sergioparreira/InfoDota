@@ -1,6 +1,8 @@
 package com.example.dotainfo.repository
 
 import com.example.dotainfo.database.OpenDataBase
+import com.example.dotainfo.enums.HeroesEnum
+import com.example.dotainfo.model.Heroes
 import com.example.dotainfo.model.ProPlayer
 import com.example.dotainfo.service.DotaApi
 
@@ -10,6 +12,11 @@ interface DotaRepository {
 
     suspend fun getProPlayersFromBd() : List<ProPlayer>
 
+    suspend fun getHeroes() : List<Heroes>
+
+    suspend fun getHeroesFromBd() : List<Heroes>
+
+    suspend fun getHeroesBdAttry(enumHeroes: String): List<Heroes>?
 }
 
 
@@ -22,5 +29,19 @@ class DotaRepositoryImpl(private val mDotaApi: DotaApi, private val mDotaBd : Op
     override suspend fun getProPlayersFromBd(): List<ProPlayer> {
         return mDotaBd.ProPlayer().getProPlayers()
     }
+
+    override suspend fun getHeroes(): List<Heroes> {
+        return mDotaApi.getHeroesStatus()
+    }
+
+    override suspend fun getHeroesFromBd(): List<Heroes> {
+        return mDotaBd.Heroes().getHeroes()
+    }
+
+    override suspend fun getHeroesBdAttry(enumHeroes: String): List<Heroes> {
+        return mDotaBd.Heroes().getHeroesAttry(enumHeroes)
+
+    }
+
 
 }

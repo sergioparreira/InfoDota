@@ -3,9 +3,11 @@ package com.example.dotainfo.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.lifecycle.Observer
 import com.example.dotainfo.MainActivity
 import com.example.dotainfo.R
+import com.example.dotainfo.interfaces.ISincronizacao
 import com.example.dotainfo.repository.DotaRepository
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import kotlinx.coroutines.CoroutineScope
@@ -16,14 +18,13 @@ import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
 import org.koin.core.inject
 
-class SplashScreenActivity : AppCompatActivity() {
+class SplashScreenActivity : AppCompatActivity(), ISincronizacao {
 
     private val mViewModelSplashScreen: ViewModelSplashScreen by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-
     }
 
     override fun onResume() {
@@ -32,27 +33,39 @@ class SplashScreenActivity : AppCompatActivity() {
         configuraSplash()
     }
 
-    fun observerCarregamento() {
+    private fun observerCarregamento() {
         mViewModelSplashScreen.finalizouCarregamento.observe(this, Observer {
             if (it)
-                abreMenuPrincipal()
+                abrirMenuPrincipal()
         })
     }
 
+    private fun carregarDados() {
+        try{
+            sendProgressSincMsg("Loading pro players")
+            mViewModelSplashScreen.carregarDadosProPlayers()
+            sendProgressSincMsg("Loading heroes")
+            mViewModelSplashScreen.carregarDadosHeroes()
+        }catch (ex : Exception){
+            Log.e("CARREGDADOS", ex.message ?: "")
+            sendProgressSincMsg("An error ocurred while loading pro players")
 
-    fun carregarDadosDaApi() {
-        txtAtualizacaoSplash.setText(getString(R.string.loading_pro_players))
-        mViewModelSplashScreen.carregarDadosDaApi()
+        }
     }
 
     fun configuraSplash(){
         Handler().postDelayed({
-            carregarDadosDaApi()
+            carregarDados()
         },2000)
     }
 
-    fun abreMenuPrincipal() {
+    private fun abrirMenuPrincipal() {
         startActivity<MainActivity>()
         finish()
+    }
+
+
+    override fun sendProgressSincMsg(msg: String) {
+        txtAtualizacaoSplash.text = msg
     }
 }
