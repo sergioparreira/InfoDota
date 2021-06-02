@@ -7,19 +7,20 @@ import android.os.Handler
 import android.util.Log
 import androidx.lifecycle.Observer
 import com.example.dotainfo.MainActivity
-import com.example.dotainfo.R
+import com.example.dotainfo.databinding.ActivitySplashScreenBinding
 import com.example.dotainfo.interfaces.ISincronizacao
-import kotlinx.android.synthetic.main.activity_splash_screen.*
+import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 
 class SplashScreenActivity : AppCompatActivity(), ISincronizacao, KoinComponent {
 
     private val mViewModelSplashScreen: ViewModelSplashScreen by inject()
+    private lateinit var mSplashScreenBinding: ActivitySplashScreenBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        mSplashScreenBinding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        setContentView(mSplashScreenBinding.root)
     }
 
     override fun onResume() {
@@ -62,6 +63,6 @@ class SplashScreenActivity : AppCompatActivity(), ISincronizacao, KoinComponent 
 
 
     override fun sendProgressSincMsg(msg: String) {
-        txtAtualizacaoSplash.text = msg
+        mSplashScreenBinding.txtAtualizacaoSplash.text = msg
     }
 }

@@ -21,20 +21,17 @@ class ViewModelSplashScreen : ViewModel(), KoinComponent {
     val finalizouCarregamento: LiveData<Boolean> = _finalizouCarregamento
 
     fun carregarDadosProPlayers() {
-  //      splashScreenActivity.sendProgressSincMsg("Loading pro players")
         viewModelScope.launch {
             try {
                 if (!playersJaCarregado()) {
                     mDataBase.ProPlayer().insertProPlayers(mDotaRepository.getProPlayers())
                 }
             } catch (e: Exception) {
-            //    splashScreenActivity.sendProgressSincMsg("An error ocurred while loading pro players")
             }
         }
     }
 
     fun carregarDadosHeroes() {
-       // splashScreenActivity.sendProgressSincMsg("Loading Heroes")
         viewModelScope.launch {
             try {
                 if (!playersJaCarregado()) {
@@ -42,7 +39,6 @@ class ViewModelSplashScreen : ViewModel(), KoinComponent {
                 }
                 finalizouCarregamento()
             } catch (e: Exception) {
-           //     splashScreenActivity.sendProgressSincMsg("An error ocurred while loading heroes")
                 finalizouCarregamento()
             }
         }
