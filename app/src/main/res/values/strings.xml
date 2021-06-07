@@ -15,4 +15,14 @@
 	<string name="hide">hide</string>
 	<string name="show">SHOW</string>
     <string name="hero">hero</string>
+    <string name="atualizacao_de_dados">ATUALIZAÇÕES DE DADOS</string>
+    <string name="filtrar_herois">FILTRAR HERÓIS</string>
+    <string name="atributo">ATRIBUTO</string>
+    <string name="complexidade">COMPLEXIDADE</string>
+    <string name="dota_2">Dota 2</string>
+    <string name="info_about_dota_2">Info about dota 2</string>
+    <string name="logo_dota2">logo_dota2</string>
+    <string name="strength">strength</string>
+    <string name="agility">agility</string>
+    <string name="inteligency">inteligency</string>
 </resources>

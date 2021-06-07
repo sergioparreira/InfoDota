@@ -88,7 +88,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:visibility="gone"
-			android:text="TESTETSTETETTET TET T ET ETETETETTE TE TE TETE T ET ET ET E TE TE TE T ET EG FD GFDG FDG DFG "
 			/>
 
 	</LinearLayout>

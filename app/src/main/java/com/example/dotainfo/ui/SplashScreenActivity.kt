@@ -1,12 +1,15 @@
 package com.example.dotainfo.ui
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.example.dotainfo.MainActivity
+import com.example.dotainfo.R
 import com.example.dotainfo.databinding.ActivitySplashScreenBinding
 import com.example.dotainfo.interfaces.ISincronizacao
 import org.koin.android.ext.android.inject
@@ -21,6 +24,11 @@ class SplashScreenActivity : AppCompatActivity(), ISincronizacao, KoinComponent 
         super.onCreate(savedInstanceState)
         mSplashScreenBinding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(mSplashScreenBinding.root)
+
+        Glide.with(this)
+            .load(R.drawable.dotagif)
+            .into(mSplashScreenBinding.imageViewSplashScreen)
+
     }
 
     override fun onResume() {
@@ -52,7 +60,7 @@ class SplashScreenActivity : AppCompatActivity(), ISincronizacao, KoinComponent 
     fun configuraSplash(){
         Handler().postDelayed({
             carregarDados()
-        },2000)
+        },8000)
     }
 
     private fun abrirMenuPrincipal() {
