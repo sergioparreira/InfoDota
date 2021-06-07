@@ -60,7 +60,7 @@ class SplashScreenActivity : AppCompatActivity(), ISincronizacao, KoinComponent 
     fun configuraSplash(){
         Handler().postDelayed({
             carregarDados()
-        },8000)
+        },3000)
     }
 
     private fun abrirMenuPrincipal() {
