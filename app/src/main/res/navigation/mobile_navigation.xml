@@ -13,22 +13,26 @@
 
     <fragment
         android:id="@+id/nav_pro_players"
-        android:name="com.example.dotainfo.ui.proPlayers.ProPlayersFragment"
+        android:name="com.example.dotainfo.ui.proplayers.ProPlayersFragment"
         android:label="@string/menu_pro_players"
-        tools:layout="@layout/fragment_gallery" >
+        tools:layout="@layout/fragment_pro_players" >
         <action
             android:id="@+id/action_nav_pro_players_to_detalheProPlayersFragment"
             app:destination="@id/detalheProPlayersFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.dotainfo.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_heroes"
+        android:name="com.example.dotainfo.ui.heroes.HeroesFragment"
+        android:label="@string/menu_heroes"
+        tools:layout="@layout/fragment_heroes_attry" />
     <fragment
         android:id="@+id/detalheProPlayersFragment"
-        android:name="com.example.dotainfo.ui.proPlayers.DetalheProPlayersFragment"
-        android:label="detalhe_pro_players_fragment"
-        tools:layout="@layout/detalhe_pro_players_fragment" />
+        android:name="com.example.dotainfo.ui.proplayers.PerfilProPlayersFragment"
+        android:label="Perfil Pro Player"
+        tools:layout="@layout/perfil_pro_players_fragment" >
+        <argument
+            android:name="url_profile"
+            app:argType="string" />
+    </fragment>
 </navigation>

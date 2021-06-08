@@ -8,8 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.dotainfo.database.OpenDataBase
 import com.example.dotainfo.repository.DotaRepository
 import kotlinx.coroutines.launch
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import java.lang.Exception
 
 class ViewModelSplashScreen : ViewModel(), KoinComponent {
@@ -20,24 +20,36 @@ class ViewModelSplashScreen : ViewModel(), KoinComponent {
     private val _finalizouCarregamento = MutableLiveData<Boolean>()
     val finalizouCarregamento: LiveData<Boolean> = _finalizouCarregamento
 
-    fun carregarDadosDaApi() {
-
+    fun carregarDadosProPlayers() {
         viewModelScope.launch {
             try {
-                if (!jaFoiCarregado()) {
+                if (!playersJaCarregado()) {
                     mDataBase.ProPlayer().insertProPlayers(mDotaRepository.getProPlayers())
-                    _finalizouCarregamento.value = true
                 }
-                _finalizouCarregamento.value = true
             } catch (e: Exception) {
-                _finalizouCarregamento.value = true;
-                Log.e("ERRO", e.message.toString())
             }
         }
     }
 
-    suspend fun jaFoiCarregado(): Boolean {
-        return mDataBase.ProPlayer().getProPlayers().size > 0
+    fun carregarDadosHeroes() {
+        viewModelScope.launch {
+            try {
+                if (!playersJaCarregado()) {
+                    mDataBase.Heroes().insertHeroes(mDotaRepository.getHeroes())
+                }
+                finalizouCarregamento()
+            } catch (e: Exception) {
+                finalizouCarregamento()
+            }
+        }
+    }
+
+    private fun finalizouCarregamento(){
+        _finalizouCarregamento.value = true
+    }
+
+    suspend fun playersJaCarregado(): Boolean {
+        return mDataBase.ProPlayer().getProPlayers().isNotEmpty()
 
     }
 }

@@ -9,6 +9,32 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_pro_players">Pro Players</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_heroes">Heroes</string>
     <string name="loading_pro_players">Carregando dados dos Pro Players</string>
+    <string name="imagem_avatar">Imagem Avatar</string>
+    <string name="hide">hide</string>
+    <string name="show">SHOW</string>
+    <string name="hero">hero</string>
+    <string name="atualizacao_de_dados">UPDATING</string>
+    <string name="filtrar_herois">FILTER HEROES:</string>
+    <string name="atributo">ATTRIBUTES</string>
+    <string name="complexidade">COMPLEXIDADE</string>
+    <string name="dota_2">Dota 2</string>
+    <string name="info_about_dota_2">Info about dota 2</string>
+    <string name="logo_dota2">logo_dota2</string>
+    <string name="strength">strength</string>
+    <string name="agility">agility</string>
+    <string name="inteligency">inteligency</string>
+    <string name="text_dota2_heroes">De engenhosos magos a brutamontes destemidos, passando por rebeldes astutos, a gama de heróis do Dota 2 é enorme e incrivelmente diversa. Lance habilidades incríveis e Ultimates devastadoras no seu caminho para a vitória.</string>
+    <string name="title_dota2_heroes">ESCOLHA O SEU HERÓI</string>
+    <string name="attrybut_strength">attrybut_strength</string>
+    <string name="attrybut_agility">attrybut_agility</string>
+    <string name="attrybut_inteligency">attrybut_inteligency</string>
+    <string name="limpar_filtros">limpar_filtros</string>
+    <string name="more">MORE</string>
+    <string name="less">LESS</string>
+    <string name="name_proplayer">Name: %1$s</string>
+    <string name="name_profile_url">Profile Url: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,28 +1,33 @@
 package com.example.dotainfo.ui
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.example.dotainfo.MainActivity
 import com.example.dotainfo.R
-import com.example.dotainfo.repository.DotaRepository
-import kotlinx.android.synthetic.main.activity_splash_screen.*
-import kotlinx.coroutines.CoroutineScope
-import org.jetbrains.anko.custom.async
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.doAsyncResult
-import org.jetbrains.anko.startActivity
+import com.example.dotainfo.databinding.ActivitySplashScreenBinding
+import com.example.dotainfo.interfaces.ISincronizacao
 import org.koin.android.ext.android.inject
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
 
-class SplashScreenActivity : AppCompatActivity() {
+class SplashScreenActivity : AppCompatActivity(), ISincronizacao, KoinComponent {
 
     private val mViewModelSplashScreen: ViewModelSplashScreen by inject()
+    private lateinit var mSplashScreenBinding: ActivitySplashScreenBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        mSplashScreenBinding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        setContentView(mSplashScreenBinding.root)
+
+        Glide.with(this)
+            .load(R.drawable.dotagif)
+            .into(mSplashScreenBinding.imageViewSplashScreen)
 
     }
 
@@ -32,27 +37,40 @@ class SplashScreenActivity : AppCompatActivity() {
         configuraSplash()
     }
 
-    fun observerCarregamento() {
+    private fun observerCarregamento() {
         mViewModelSplashScreen.finalizouCarregamento.observe(this, Observer {
             if (it)
-                abreMenuPrincipal()
+                abrirMenuPrincipal()
         })
     }
 
+    private fun carregarDados() {
+        try{
+            sendProgressSincMsg("Loading pro players")
+            mViewModelSplashScreen.carregarDadosProPlayers()
+            sendProgressSincMsg("Loading heroes")
+            mViewModelSplashScreen.carregarDadosHeroes()
+        }catch (ex : Exception){
+            Log.e("CARREGDADOS", ex.message ?: "")
+            sendProgressSincMsg("An error ocurred while loading pro players")
 
-    fun carregarDadosDaApi() {
-        txtAtualizacaoSplash.setText(getString(R.string.loading_pro_players))
-        mViewModelSplashScreen.carregarDadosDaApi()
+        }
     }
 
     fun configuraSplash(){
         Handler().postDelayed({
-            carregarDadosDaApi()
-        },2000)
+            carregarDados()
+        },3000)
     }
 
-    fun abreMenuPrincipal() {
-        startActivity<MainActivity>()
+    private fun abrirMenuPrincipal() {
+        val intent = Intent(this, MainActivity::class.java)
+        this.startActivity(intent)
         finish()
+    }
+
+
+    override fun sendProgressSincMsg(msg: String) {
+        mSplashScreenBinding.txtAtualizacaoSplash.text = msg
     }
 }
