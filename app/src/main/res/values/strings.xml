@@ -9,7 +9,7 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_pro_players">Pro Players</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_heroes">Heroes</string>
     <string name="loading_pro_players">Carregando dados dos Pro Players</string>
 	<string name="imagem_avatar">Imagem Avatar</string>
 	<string name="hide">hide</string>

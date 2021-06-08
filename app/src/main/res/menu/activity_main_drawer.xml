@@ -10,11 +10,11 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_pro_players"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/earthshaker_minimap_icon"
             android:title="@string/menu_pro_players" />
         <item
             android:id="@+id/nav_heroes"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:icon="@drawable/abaddon_minimap_icon"
+            android:title="@string/menu_heroes" />
     </group>
 </menu>
