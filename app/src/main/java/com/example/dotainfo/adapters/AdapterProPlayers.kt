@@ -1,6 +1,7 @@
 package com.example.dotainfo.adapters
 
 import android.content.Context
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,6 +41,7 @@ class AdapterProPlayers(val listaProPlayers: List<ProPlayer>, val context: Conte
                 Glide.with(itemView.context).load("${mProPlayer.avatarmedium}").into(binding.imgViewProPlayer)
                 binding.txtViewNameProPlayer.text = context.getString(R.string.name_proplayer, mProPlayer.name)
                 binding.txtViewProfileURL.text = context.getString(R.string.name_profile_url, mProPlayer.profileurl)
+                binding.txtViewProfileURL.paintFlags = Paint.UNDERLINE_TEXT_FLAG
                 binding.txtViewProfileURL.setOnClickListener {
                     iProPlayers.carregarProfile(mProPlayer.profileurl)
                 }

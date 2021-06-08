@@ -29,8 +29,8 @@
     <fragment
         android:id="@+id/detalheProPlayersFragment"
         android:name="com.example.dotainfo.ui.proplayers.PerfilProPlayersFragment"
-        android:label="detalhe_pro_players_fragment"
-        tools:layout="@layout/detalhe_pro_players_fragment" >
+        android:label="Perfil Pro Player"
+        tools:layout="@layout/perfil_pro_players_fragment" >
         <argument
             android:name="url_profile"
             app:argType="string" />
