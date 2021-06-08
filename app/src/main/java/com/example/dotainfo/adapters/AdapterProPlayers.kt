@@ -1,5 +1,6 @@
 package com.example.dotainfo.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
+import com.example.dotainfo.R
 import com.example.dotainfo.databinding.RvItemProPlayerBinding
+import com.example.dotainfo.interfaces.IProPlayers
 import com.example.dotainfo.model.ProPlayer
 
-class AdapterProPlayers(val listaProPlayers: List<ProPlayer>) :
+class AdapterProPlayers(val listaProPlayers: List<ProPlayer>, val context: Context, val iProPlayers: IProPlayers) :
     RecyclerView.Adapter<AdapterProPlayers.ViewHolderProPlayers>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderProPlayers {
@@ -27,17 +30,19 @@ class AdapterProPlayers(val listaProPlayers: List<ProPlayer>) :
 
     override fun onBindViewHolder(holder: ViewHolderProPlayers, position: Int) {
         listaProPlayers.get(position).let {
-            holder.bindView(it, holder)
+            holder.bindView(it, holder, context, iProPlayers)
         }
     }
 
     class ViewHolderProPlayers(val binding: RvItemProPlayerBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindView(mProPlayer: ProPlayer, holder: ViewHolderProPlayers) {
+        fun bindView(mProPlayer: ProPlayer, holder: ViewHolderProPlayers, context: Context, iProPlayers: IProPlayers) {
             with(holder) {
                 Glide.with(itemView.context).load("${mProPlayer.avatarmedium}").into(binding.imgViewProPlayer)
-                binding.txtViewNameProPlayer.text = "Name: ${mProPlayer.name.toString()}"
-                binding.txtViewPersonNameProPlayer.text = mProPlayer.personaname.toString()
-                binding.txtViewTeamNameProPlayer.text = mProPlayer.team_name.toString()
+                binding.txtViewNameProPlayer.text = context.getString(R.string.name_proplayer, mProPlayer.name)
+                binding.txtViewProfileURL.text = context.getString(R.string.name_profile_url, mProPlayer.profileurl)
+                binding.txtViewProfileURL.setOnClickListener {
+                    iProPlayers.carregarProfile(mProPlayer.profileurl)
+                }
                 binding.showButton.setOnClickListener {
                     showOrRide(binding.card, binding.textViewToExpandle, View.VISIBLE)
                 }

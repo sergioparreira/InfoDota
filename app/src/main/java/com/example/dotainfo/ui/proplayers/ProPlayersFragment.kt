@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.dotainfo.adapters.AdapterProPlayers
 import com.example.dotainfo.databinding.FragmentProPlayersBinding
+import com.example.dotainfo.interfaces.IProPlayers
 import org.koin.android.ext.android.inject
 
-class ProPlayersFragment : Fragment() {
+class ProPlayersFragment : Fragment(), IProPlayers {
 
 	private val proPlayersViewModel: ProPlayersViewModel by inject()
 	private lateinit var recycleView: RecyclerView
@@ -47,8 +49,16 @@ class ProPlayersFragment : Fragment() {
 	}
 
 	private fun configureObserverProPlayer() {
-		proPlayersViewModel.proPlayers.observe(viewLifecycleOwner, Observer {
-			recycleView.adapter = AdapterProPlayers(it)
+		proPlayersViewModel.proPlayers.observe(viewLifecycleOwner, { lista ->
+			recycleView.adapter = context?.let { contexto -> AdapterProPlayers(lista, contexto, this) }
 		})
 	}
+
+	override fun carregarProfile(urlProfile: String?) {
+		urlProfile?.let {
+			val action = ProPlayersFragmentDirections.actionNavProPlayersToDetalheProPlayersFragment(it)
+			findNavController().navigate(action)
+		}
+	}
+
 }

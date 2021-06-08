@@ -33,28 +33,30 @@
 				android:id="@+id/txtViewNameProPlayer"
 				android:layout_width="wrap_content"
 				android:layout_height="0dp"
+				android:layout_gravity="center"
 				android:layout_weight="1"
 				android:textAppearance="?attr/textAppearanceHeadline6"
 				tools:text="@tools:sample/first_names" />
 
 
 			<TextView
-				android:id="@+id/txtViewPersonNameProPlayer"
+				android:id="@+id/txtViewProfileURL"
 				android:layout_width="wrap_content"
+				android:layout_gravity="center"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="4dp"
 				android:textAppearance="?attr/textAppearanceBody2"
 				android:textColor="?android:attr/textColorSecondary"
 				tools:text="@tools:sample/last_names" />
 
-			<TextView
-				android:id="@+id/txtViewTeamNameProPlayer"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="4dp"
-				android:textAppearance="?attr/textAppearanceBody2"
-				android:textColor="?android:attr/textColorSecondary"
-				tools:text="@tools:sample/lorem[20]" />
+<!--			<TextView-->
+<!--				android:id="@+id/txtViewTeamNameProPlayer"-->
+<!--				android:layout_width="wrap_content"-->
+<!--				android:layout_height="wrap_content"-->
+<!--				android:layout_marginTop="4dp"-->
+<!--				android:textAppearance="?attr/textAppearanceBody2"-->
+<!--				android:textColor="?android:attr/textColorSecondary"-->
+<!--				tools:text="@tools:sample/lorem[20]" />-->
 
 		</LinearLayout>
 
@@ -71,7 +73,7 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginEnd="8dp"
-				android:text="@string/hide" />
+				android:text="@string/less" />
 
 			<com.google.android.material.button.MaterialButton
 				android:id="@+id/showButton"
@@ -79,7 +81,7 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:backgroundTint="@color/purple_500"
-				android:text="@string/show"
+				android:text="@string/more"
 				android:textColor="@color/white" />
 		</LinearLayout>
 
