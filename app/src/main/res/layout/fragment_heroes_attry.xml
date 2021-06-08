@@ -21,56 +21,77 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:text="ATRIBUTO"
+                android:text="@string/filtrar_herois"
                 android:textColor="@color/black" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:background="@drawable/strength_icon"
-                android:backgroundTintMode="screen" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/agility_icon" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/intelligence_icon" />
-
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="COMPLEXIDADE"
+                android:layout_marginStart="15dp"
+                android:text="@string/atributo"
                 android:textColor="@color/black" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/complexity1"
-                android:layout_width="30dp"
+            <ImageButton
+                android:id="@+id/attrybut_strength"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buttheroes"
-                />
+                android:layout_marginStart="15dp"
+                android:background="@drawable/icon_strength_selected"
+                android:backgroundTintMode="screen"
+                android:contentDescription="@string/attrybut_strength" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/complexity2"
-                android:layout_width="30dp"
+            <ImageButton
+                android:id="@+id/attrybut_agility"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buttheroes"
-                />
+                android:layout_marginStart="5dp"
+                android:background="@drawable/icon_agility_selected"
+                android:contentDescription="@string/attrybut_agility" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/complexity3"
-                android:layout_width="30dp"
+            <ImageButton
+                android:id="@+id/attrybut_inteligency"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buttheroes"
-                />
+                android:layout_marginStart="5dp"
+                android:background="@drawable/icon_intelligence_selected"
+                android:contentDescription="@string/attrybut_inteligency" />
+
+            <ImageButton
+                android:id="@+id/limparFiltros"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/clean_filters"
+                android:contentDescription="@string/limpar_filtros" />
+
+
+            <!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:text="@string/complexidade"-->
+<!--                android:textColor="@color/black" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/complexity1"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/buttons_heroes_complexcity"-->
+<!--                />-->
+
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/complexity2"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/buttons_heroes_complexcity"-->
+<!--                />-->
+
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/complexity3"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/buttons_heroes_complexcity"-->
+<!--                />-->
 
         </LinearLayout>
 

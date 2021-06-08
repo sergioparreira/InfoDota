@@ -15,9 +15,9 @@
 	<string name="hide">hide</string>
 	<string name="show">SHOW</string>
     <string name="hero">hero</string>
-    <string name="atualizacao_de_dados">ATUALIZAÇÕES DE DADOS</string>
-    <string name="filtrar_herois">FILTRAR HERÓIS</string>
-    <string name="atributo">ATRIBUTO</string>
+    <string name="atualizacao_de_dados">UPDATING</string>
+    <string name="filtrar_herois">FILTER HEROES:</string>
+    <string name="atributo">ATTRIBUTES</string>
     <string name="complexidade">COMPLEXIDADE</string>
     <string name="dota_2">Dota 2</string>
     <string name="info_about_dota_2">Info about dota 2</string>
@@ -27,4 +27,8 @@
     <string name="inteligency">inteligency</string>
     <string name="text_dota2_heroes">De engenhosos magos a brutamontes destemidos, passando por rebeldes astutos, a gama de heróis do Dota 2 é enorme e incrivelmente diversa. Lance habilidades incríveis e Ultimates devastadoras no seu caminho para a vitória.</string>
     <string name="title_dota2_heroes">ESCOLHA O SEU HERÓI</string>
+    <string name="attrybut_strength">attrybut_strength</string>
+    <string name="attrybut_agility">attrybut_agility</string>
+    <string name="attrybut_inteligency">attrybut_inteligency</string>
+    <string name="limpar_filtros">limpar_filtros</string>
 </resources>

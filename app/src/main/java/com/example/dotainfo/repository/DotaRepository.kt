@@ -10,22 +10,23 @@ import kotlin.collections.ArrayList
 
 interface DotaRepository {
 
-    suspend fun getProPlayers() : ArrayList<ProPlayer>
+    suspend fun getProPlayers(): ArrayList<ProPlayer>
 
-    suspend fun getProPlayersFromBd() : List<ProPlayer>
+    suspend fun getProPlayersFromBd(): List<ProPlayer>
 
-    suspend fun getHeroes() : List<Heroes>
+    suspend fun getHeroes(): List<Heroes>
 
-    suspend fun getHeroesFromBd() : List<Heroes>
+    suspend fun getHeroesFromBd(): List<Heroes>
 
     suspend fun getHeroesBdAttry(enumHeroes: String): List<Heroes>?
 }
 
 
-class DotaRepositoryImpl(private val mDotaApi: DotaApi, private val mDotaBd : OpenDataBase) : DotaRepository{
+class DotaRepositoryImpl(private val mDotaApi: DotaApi, private val mDotaBd: OpenDataBase) :
+    DotaRepository {
 
     override suspend fun getProPlayers(): ArrayList<ProPlayer> {
-       return mDotaApi.getProPlayers()
+        return mDotaApi.getProPlayers()
     }
 
     override suspend fun getProPlayersFromBd(): List<ProPlayer> {
@@ -40,13 +41,7 @@ class DotaRepositoryImpl(private val mDotaApi: DotaApi, private val mDotaBd : Op
         return mDotaBd.Heroes().getHeroes()
     }
 
-    override suspend fun getHeroesBdAttry(enumHeroes: String): List<Heroes> {
-        return when (enumHeroes) {
-            HeroesEnum.ALL.name.toLowerCase(Locale.getDefault()) -> mDotaBd.Heroes().getHeroes()
-            else ->  mDotaBd.Heroes().getHeroesAttry(enumHeroes)
-        }
-
-    }
+    override suspend fun getHeroesBdAttry(enumHeroes: String) = mDotaBd.Heroes().getHeroesAttry(enumHeroes)
 
 
 }

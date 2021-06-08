@@ -3,6 +3,7 @@ package com.example.dotainfo.ui.heroes
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.dotainfo.enums.HeroesEnum
 import com.example.dotainfo.model.Heroes
 import com.example.dotainfo.repository.DotaRepository
 import kotlinx.coroutines.launch
@@ -23,12 +24,12 @@ class HeroesViewModel : ViewModel(), KoinComponent {
     var _onFinisih = MutableLiveData<Boolean>()
     private val onFinisih = _onFinisih
 
-    fun loadHeroes(enum: String?) {
+    fun loadHeroes(attribute: String) {
         try {
             viewModelScope.launch {
-                when(enum){
-                    null -> _heroes.value = mDotaRepository.getHeroesFromBd()
-                    else -> _heroes.value = mDotaRepository.getHeroesBdAttry(enum.toLowerCase(Locale.getDefault()))
+                when(attribute){
+                    HeroesEnum.ALL.name -> _heroes.value = mDotaRepository.getHeroesFromBd()
+                    else -> _heroes.value = mDotaRepository.getHeroesBdAttry(attribute.lowercase())
                 }
             }
         } catch (ex: Exception) {
