@@ -1,4 +1,4 @@
-package com.example.dotainfo.ui.proPlayers
+package com.example.dotainfo.ui.proplayers
 
 import android.util.Log
 import androidx.lifecycle.LiveData

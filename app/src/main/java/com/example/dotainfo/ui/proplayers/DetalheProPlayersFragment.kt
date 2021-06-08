@@ -1,4 +1,4 @@
-package com.example.dotainfo.ui.proPlayers
+package com.example.dotainfo.ui.proplayers
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle

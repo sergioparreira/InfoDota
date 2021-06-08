@@ -7,7 +7,7 @@ import com.example.dotainfo.repository.DotaRepositoryImpl
 import com.example.dotainfo.service.DotaApi
 import com.example.dotainfo.ui.heroes.HeroesViewModel
 import com.example.dotainfo.ui.ViewModelSplashScreen
-import com.example.dotainfo.ui.proPlayers.ProPlayersViewModel
+import com.example.dotainfo.ui.proplayers.ProPlayersViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

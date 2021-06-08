@@ -1,4 +1,4 @@
-package com.example.dotainfo.ui.proPlayers
+package com.example.dotainfo.ui.proplayers
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.dotainfo.adapters.AdapterProPlayers
 import com.example.dotainfo.databinding.FragmentProPlayersBinding
 import org.koin.android.ext.android.inject
